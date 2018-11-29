@@ -11,11 +11,11 @@ describe "GET /user" do
 
     user = JSON.parse(response.body, symbolize_names: true)
 
-    expect(user).to have_key :id
-    expect(user).to_not have_key :password_digest
+    expect(user[:data][:attributes]).to have_key :id
+    expect(user[:data][:attributes]).to_not have_key :password_digest
 
-    expect(user[:email]).to eq "uncle.jesse@example.com"
-    expect(user[:name]).to  eq "Jesse Katsopolis"
+    expect(user[:data][:attributes][:email]).to eq "uncle.jesse@example.com"
+    expect(user[:data][:attributes][:name]).to  eq "Jesse Katsopolis"
   end
 
   it "prevents access without a valid API key" do
