@@ -1,0 +1,13 @@
+<h1><%= date_helper(@asteroids_search.start_date) %> - <%= date_helper(@asteroids_search.end_date) %></h1>
+<h2>Most Dangerous Day</h2>
+
+<h3>Most Dangerous Day:<%= date_helper(@asteroids_search.most_dangerous_day) %></h3>
+  <h2>Near Earth Objects: <%= @asteroids_search.asteroid_count %></h2>
+  <div class="asterodss_search">
+    <% @asteroids_search.asteroids.each do |asteroid| %>
+      <ul class="asteroid">
+       <li class="asteroid-name">Name: <%= asteroid.name %></li>
+        <li class="asteroid-neo-id">NEO Reference ID: <%= asteroid.neo_reference_id %></li>
+      </ul><br />
+    <% end %>
+  </div>
